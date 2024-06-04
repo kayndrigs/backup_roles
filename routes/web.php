@@ -28,6 +28,9 @@ Route::resource('roles',App\Http\Controllers\RoleController::class);
 Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class,'destroy']);
 
 
+Route::get('roles/{roleId}/give-permissions',[App\Http\Controllers\RoleController::class,'addPermissionToRole']);
+Route::put('roles/{roleId}/give-permissions',[App\Http\Controllers\RoleController::class,'givePermissionToRole']);
+
 
 // end of added routes
 
