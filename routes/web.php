@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\PermissionController;
-
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+
+
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -30,6 +33,12 @@ Route::get('roles/{roleId}/delete', [App\Http\Controllers\RoleController::class,
 
 Route::get('roles/{roleId}/give-permissions',[App\Http\Controllers\RoleController::class,'addPermissionToRole']);
 Route::put('roles/{roleId}/give-permissions',[App\Http\Controllers\RoleController::class,'givePermissionToRole']);
+
+
+Route::resource('users',App\Http\Controllers\UserController::class);
+Route::put('users/{userId}/edit',[App\Http\Controllers\UserController::class,'edit']);
+Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
+
 
 
 // end of added routes
